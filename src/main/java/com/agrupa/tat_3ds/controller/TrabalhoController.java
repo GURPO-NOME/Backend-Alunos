@@ -1,5 +1,5 @@
 package com.agrupa.tat_3ds.controller;
-
+import jakarta.validation.Valid; 
 import com.agrupa.tat_3ds.form.RegistroForm;
 import com.agrupa.tat_3ds.service.TrabalhoService;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ public class TrabalhoController {
     }
 
     @PostMapping(path = "/cadastrar-trabalho-grupos")
-    public ResponseEntity<Void> cadastrarTrabalhoGrupos(@RequestBody RegistroForm registroForm) {
+    public ResponseEntity<Void> cadastrarTrabalhoGrupos(@RequestBody @Valid RegistroForm registroForm) {
         this.trabalhoService.cadastrarTrabalhoGrupos(registroForm);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
